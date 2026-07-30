@@ -1,0 +1,10 @@
+apis:
+  - name: openai
+    contract:
+      type: openapi
+      url: https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+    scan_paths:
+      - backend/utils/llm/providers.py
+      - backend/utils/llm/clients.py
+    verify:
+      command: cd backend && .venv/bin/pytest tests/unit/test_llm_gateway_openai_provider.py -v
